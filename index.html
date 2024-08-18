@@ -1,28 +1,92 @@
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             height: 100dvh;
-            background-color: green;
+            background-color: black;
+            overflow: hidden;
+            /* Ensures no scrollbars appear due to animation */
         }
-        img {
-            height: 100%;
-        }
+
         .shorse {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
+            flex-direction: column;
+            /* Ensures container takes up full viewport height */
+            border-radius: 20px;
+        }
+
+        img {
+            height: 85%;
+            
+            animation: shorse 1s infinite linear;
+
+        }
+
+        @keyframes shorse {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(25deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-25deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 60px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
         }
     </style>
 </head>
+
 <body>
     <div class="shorse">
-
+        <button onclick="playAudio()">Click Me! 🔉</button>
         <img src="img.png" alt="Image" />
     </div>
+    <audio id="myAudio" src="./shorse.mp3"></audio>
+    <script>
+        function playAudio() {
+            var x = document.getElementById("myAudio");
+            x.play();
+
+        // make animation faster , change interval to 0.2
+        const img = document.querySelector('img');
+        const duration = 0.3;
+        img.style.animationDuration = duration + 's';
+        }
+    </script>
 </body>
+
 </html>
