@@ -25,7 +25,10 @@
         }
 
         img {
-            height: 85%;
+            /* height: 85%; */
+            /* width: 50%; */
+            max-width: 100%;
+            max-height: 65%;
             
             animation: shorse 1s infinite linear;
 
@@ -50,6 +53,13 @@
 
             100% {
                 transform: rotate(0deg);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            img {
+                height: 50%;
+                width: 50%;
             }
         }
 
